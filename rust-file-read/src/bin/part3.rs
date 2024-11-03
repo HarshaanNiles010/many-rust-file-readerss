@@ -2,7 +2,7 @@
 use std::{fs::{self, File}, io::{self, BufRead}, path::Path};
 
 fn main(){
-    let input = "src/bin/input3.txt";
+    let input = "src/bin/input4.txt";
     let file_content = parse_file(input);
     let numbers = get_numbers(file_content.clone());
     let results = gen_numbers(numbers.clone());
@@ -46,7 +46,7 @@ fn get_numbers(file_content: Vec<String>) -> Vec<Vec<i32>>{
 // Example [1,2] -> 12
 // Example [1,2,3,4,5] -> 15
 // If only one number is given then [1] -> 11
-fn gen_numbers(numbers: Vec<Vec<i32>>) -> Vec<i32> {
+fn gen_numbers(numbers: Vec<Vec<i32>>) -> i32 {
     // Declaring an empty result vector
     let mut result: Vec<i32> = Vec::new();
     // Iterate through the input vector to check for each of the vectors
@@ -68,5 +68,5 @@ fn gen_numbers(numbers: Vec<Vec<i32>>) -> Vec<i32> {
         }
     }
     // Return the result back to the main function
-    return result;
+    return result.iter().sum();
 }
